@@ -10,7 +10,7 @@ Licence : GNU LGPL (see LICENCE.txt)
 
 ## Install
 
-    $ pip install git+https://github.com/enavarro222/RaspiSMS-pyclient.git
+    $ pip install git+https://github.com/memento/RaspiSMS-pyclient.git
 
 
 ## Python module usage
