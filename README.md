@@ -21,7 +21,7 @@ Licence : GNU LGPL (see LICENCE.txt)
 ```python
 from raspisms import RaspiSMS
 rsms = RaspiSMS("http://URL_TO/RaspiSMS", email="ADMIN@EMAIL.DD", password="PASSWORD")
-rsms.send("PHONENUMBER", "SMS text !")
+rsms.send("PHONENUMBER", "SMS text !"[, "YYYY-MM-DD hh:mm"])
 ```
 
 ## Command-line tool
