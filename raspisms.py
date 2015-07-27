@@ -36,7 +36,7 @@ class RaspiSMS(object):
         data['numbers'] = num
         data['text'] = text
         #if date is not None:
-        data['date'] = "2015-07-27 18:30"
+        data['date'] = "2015-07-27 18:39"
         res = requests.post(url, data=data)
         #TODO: check on a bien 200
         returns = res.json()
