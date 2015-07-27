@@ -27,14 +27,16 @@ class RaspiSMS(object):
     def send(self, num, text, date=None):
         #Note: import here to be able to import the module from setup.py whitout any dep
         import requests 
-        if date is not None: #TODO manage date
-            raise NotImplementedError("Need to be done... do it (and share it) or ask kindly on github")
+        #if date is not None: #TODO manage date
+        #    raise NotImplementedError("Need to be done... do it (and share it) or ask kindly on github")
         url = "%s/smsAPI/send/" % (self._raspisms_url)
         data = {}
         data['email'] = self._email
         data['password'] = self._password
         data['numbers'] = num
         data['text'] = text
+        #if date is not None:
+        data['date'] = "2015-07-27 18:30"
         res = requests.post(url, data=data)
         #TODO: check on a bien 200
         returns = res.json()
