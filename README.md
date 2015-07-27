@@ -6,6 +6,9 @@ See:
 * http://raspisms.raspbian-france.fr/
 * https://github.com/RaspbianFrance/RaspiSMS
 
+Fork of
+* https://github.com/enavarro222/RaspiSMS-pyclient  (enavarro222)
+
 Licence : GNU LGPL (see LICENCE.txt)
 
 ## Install
@@ -25,7 +28,7 @@ rsms.send("PHONENUMBER", "SMS text !")
 
 A command line tool `raspisms-send` is provided, you can use it this way:
 
-    $ raspisms-send -u http://URL_TO/RaspiSMS -e ADMIN@EMAIL.DD -p ADMIN_PASSWORD  PHONENUMBER "SMS text"
+    $ raspisms-send -u http://URL_TO/RaspiSMS -e ADMIN@EMAIL.DD -p ADMIN_PASSWORD  PHONENUMBER "SMS text" [DATE]
 
 See also `-h` for some help.
 
