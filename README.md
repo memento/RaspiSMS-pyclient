@@ -28,7 +28,7 @@ rsms.send("PHONENUMBER", "SMS text !")
 
 A command line tool `raspisms-send` is provided, you can use it this way:
 
-    $ raspisms-send -u http://URL_TO/RaspiSMS -e ADMIN@EMAIL.DD -p ADMIN_PASSWORD  PHONENUMBER "SMS text" [DATE]
+    $ raspisms-send -u http://URL_TO/RaspiSMS -e ADMIN@EMAIL.DD -p ADMIN_PASSWORD  PHONENUMBER "SMS text" [DATE TIME]
 
 See also `-h` for some help.
 
