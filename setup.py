@@ -22,7 +22,7 @@ setup(
     long_description=readme,
     author='Emmanuel Navarro',
     author_email='enavarro222@gmail.com',
-    url='https://github.com/enavarro222/RaspiSMS-pyclient',
+    url='https://github.com/memento/RaspiSMS-pyclient',
     py_modules=['raspisms'],
     entry_points = {
         'console_scripts': ['raspisms-send=raspisms:raspisms_send'],
