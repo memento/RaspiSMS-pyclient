@@ -73,7 +73,10 @@ def raspisms_send():
     #TODO add interactive read of data
 
     args = parser.parse_args()
-    rsms = RaspiSMS(args.url, email=args.email, password=args.password, date=args.date)
+    if args.date is None:
+        rsms = RaspiSMS(args.url, email=args.email, password=args.password)
+    else:
+        rsms = RaspiSMS(args.url, email=args.email, password=args.password, date=args.date)
     try:
         rsms.send(args.NUM, args.TEXT)
     except RaspiSMSError as err:
