@@ -6,8 +6,11 @@ See:
 * http://raspisms.raspbian-france.fr/
 * https://github.com/RaspbianFrance/RaspiSMS
 
-Fork :
+Forked from :
 * https://github.com/enavarro222/RaspiSMS-pyclient  (enavarro222)
+
+Addon :
+* -d (date) parameter added. We can now program SMS sending at a precise date and time (memento)
 
 Licence : GNU LGPL (see LICENCE.txt)
 
@@ -20,7 +23,7 @@ Licence : GNU LGPL (see LICENCE.txt)
 
 ```python
 from raspisms import RaspiSMS
-rsms = RaspiSMS("http://URL_TO/RaspiSMS", email="ADMIN@EMAIL.DD", password="PASSWORD")
+rsms = RaspiSMS("http://URL_TO/RaspiSMS", email="ADMIN@EMAIL.DD", password="PASSWORD" [, date="YYYY-MM-DD_hh:mm"])
 rsms.send("PHONENUMBER", "SMS text !")
 ```
 
