@@ -62,7 +62,7 @@ def raspisms_send():
     parser = argparse.ArgumentParser(description='Send a SMS with throw a RaspiSMS server.')
     parser.add_argument("NUM", help="Recipient phone number")
     parser.add_argument("TEXT", help="SMS itself !")
-    parser.add_argument("DATE", help="Add a sending date and time (optional). Format : YYYY-MM-DD_hh:mm")
+    parser.add_argument("DATE", help="Add a sending date and time (optional). Format : YYYY-MM-DD_hh:mm", default=None)
     parser_raspisms = parser.add_argument_group('RaspiSMS arguments')
     parser_raspisms.add_argument("-u", "--url", dest="url", help="RaspiSMS base url", required=True)
     parser_raspisms.add_argument("-e", "--email", dest="email", help="RaspiSMS admin email", required=True)
