@@ -26,7 +26,7 @@ class RaspiSMS(object):
         self._password = password
 
     def send(self, num, text, date=None):
-        #Note: import here to be able to import the module from setup.py whitout any dep
+        #Note: import here to be able to import the module from setup.py whitout any dep 
         import requests 
         #if date is not None: #TODO manage date
         #    raise NotImplementedError("Need to be done... do it (and share it) or ask kindly on github")
@@ -70,6 +70,7 @@ def raspisms_send():
 
     #TODO add .raspisms config file
     #TODO add interactive read of data
+    # test synchronisation
 
     args = parser.parse_args()
     rsms = RaspiSMS(args.url, email=args.email, password=args.password)
