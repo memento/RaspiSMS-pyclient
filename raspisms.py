@@ -79,7 +79,10 @@ def raspisms_send():
         print("Error: %s" % err, file=sys.stderr)
         return 1
     else:
-        print("SMS of %d char will be sent to %s" % (len(args.TEXT), args.NUM))
+        if args.DATE is None:
+            print("SMS of %d char will be sent to %s" % (len(args.TEXT), args.NUM))
+        else:
+            print("SMS of %d char will be sent to %s on %s" % (len(args.TEXT), args.NUM, args.DATE))
         return 0
 
 if __name__ == '__main__':
