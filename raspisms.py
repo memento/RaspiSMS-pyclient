@@ -70,6 +70,7 @@ def raspisms_send():
 
     #TODO add .raspisms config file
     #TODO add interactive read of data
+    #test 2
 
     args = parser.parse_args()
     rsms = RaspiSMS(args.url, email=args.email, password=args.password)
