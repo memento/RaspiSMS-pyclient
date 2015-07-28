@@ -27,6 +27,8 @@ class RaspiSMS(object):
         if date is not None:
             # Time to replace the _ char by a space char
             self._date = string.replace(date, '_', ' ')
+        else:
+            self._date = None
 
     def send(self, num, text):
         #Note: import here to be able to import the module from setup.py whitout any dep
