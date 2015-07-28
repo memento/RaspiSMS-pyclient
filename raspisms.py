@@ -25,7 +25,7 @@ class RaspiSMS(object):
         self._email = email
         self._password = password
         if date is not None:
-            # Time to replace the _ char by a space char
+            # Time to replace the "_" char by a " " char
             self._date = string.replace(date, '_', ' ')
         else:
             self._date = None
@@ -33,8 +33,6 @@ class RaspiSMS(object):
     def send(self, num, text):
         #Note: import here to be able to import the module from setup.py whitout any dep
         import requests 
-        #if date is not None: #TODO manage date
-        #    raise NotImplementedError("Need to be done... do it (and share it) or ask kindly on github")
         url = "%s/smsAPI/send/" % (self._raspisms_url)
         data = {}
         data['email'] = self._email
@@ -47,7 +45,7 @@ class RaspiSMS(object):
         #TODO: check on a bien 200
         returns = res.json()
         if returns["error"] == 0:
-            # every think ok
+            # everything ok
             pass
         elif returns["error"] == 1:
             raise RaspiSMSError("Invalid auth (email/password)")
@@ -66,7 +64,7 @@ def raspisms_send():
     parser = argparse.ArgumentParser(description='Send a SMS with throw a RaspiSMS server.')
     parser.add_argument("NUM", help="Recipient phone number")
     parser.add_argument("TEXT", help="SMS itself !")
-    #parser.add_argument("DATE", help="Add a sending date and time (optional). Format : YYYY-MM-DD_hh:mm", default=None)
+    
     parser_raspisms = parser.add_argument_group('RaspiSMS arguments')
     parser_raspisms.add_argument("-u", "--url", dest="url", help="RaspiSMS base url", required=True)
     parser_raspisms.add_argument("-e", "--email", dest="email", help="RaspiSMS admin email", required=True)
@@ -90,7 +88,7 @@ def raspisms_send():
         if args.date is None:
             print("SMS of %d char will be sent to %s" % (len(args.TEXT), args.NUM))
         else:
-            print("SMS of %d char will be sent to %s on %s" % (len(args.TEXT), args.NUM, args.date))
+            print("SMS of %d char will be sent to %s on %s" % (len(args.TEXT), args.NUM, string.replace(args.date, '_', ' ')))
         return 0
 
 if __name__ == '__main__':
