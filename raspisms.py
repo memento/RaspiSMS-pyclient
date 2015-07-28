@@ -62,28 +62,28 @@ def raspisms_send():
     parser = argparse.ArgumentParser(description='Send a SMS with throw a RaspiSMS server.')
     parser.add_argument("NUM", help="Recipient phone number")
     parser.add_argument("TEXT", help="SMS itself !")
-    parser.add_argument("DATE", help="Add a sending date and time (optional). Format : YYYY-MM-DD_hh:mm", default=None)
+    #parser.add_argument("DATE", help="Add a sending date and time (optional). Format : YYYY-MM-DD_hh:mm", default=None)
     parser_raspisms = parser.add_argument_group('RaspiSMS arguments')
     parser_raspisms.add_argument("-u", "--url", dest="url", help="RaspiSMS base url", required=True)
     parser_raspisms.add_argument("-e", "--email", dest="email", help="RaspiSMS admin email", required=True)
     parser_raspisms.add_argument("-p", "--password", dest="password", help="RaspiSMS admin password", required=True)
+    parser_raspisms.add_argument("-d", "--date", dest="date", help="Add a sending date and time (optional). Format : YYYY-MM-DD_hh:mm", required=False)
 
     #TODO add .raspisms config file
     #TODO add interactive read of data
-    #test 2
 
     args = parser.parse_args()
-    rsms = RaspiSMS(args.url, email=args.email, password=args.password)
+    rsms = RaspiSMS(args.url, email=args.email, password=args.password, date=args.date)
     try:
-        rsms.send(args.NUM, args.TEXT, args.DATE)
+        rsms.send(args.NUM, args.TEXT)
     except RaspiSMSError as err:
         print("Error: %s" % err, file=sys.stderr)
         return 1
     else:
-        if args.DATE is None:
+        if args.date is None:
             print("SMS of %d char will be sent to %s" % (len(args.TEXT), args.NUM))
         else:
-            print("SMS of %d char will be sent to %s on %s" % (len(args.TEXT), args.NUM, args.DATE))
+            print("SMS of %d char will be sent to %s on %s" % (len(args.TEXT), args.NUM, args.date))
         return 0
 
 if __name__ == '__main__':
