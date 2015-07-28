@@ -74,7 +74,7 @@ def raspisms_send():
     args = parser.parse_args()
     rsms = RaspiSMS(args.url, email=args.email, password=args.password)
     try:
-        rsms.send(args.NUM, args.TEXT)
+        rsms.send(args.NUM, args.TEXT, args.DATE)
     except RaspiSMSError as err:
         print("Error: %s" % err, file=sys.stderr)
         return 1
