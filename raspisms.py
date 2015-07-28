@@ -18,14 +18,17 @@ class RaspiSMSError(RuntimeError):
 class RaspiSMS(object):
     """ Minimal client for RaspiSMS API (http://raspisms.raspbian-france.fr)
     """
-    def __init__(self, raspisms_url, email, password):
+    def __init__(self, raspisms_url, email, password, date=None):
         #TODO check host ok
         #TODO add options for a HTTP auth system
         self._raspisms_url = raspisms_url
         self._email = email
         self._password = password
+        if date is not None:
+            # Time to replace the _ char by a space char
+            self._date = string.replace(date, '_', ' ')
 
-    def send(self, num, text, date=None):
+    def send(self, num, text):
         #Note: import here to be able to import the module from setup.py whitout any dep
         import requests 
         #if date is not None: #TODO manage date
@@ -36,9 +39,8 @@ class RaspiSMS(object):
         data['password'] = self._password
         data['numbers'] = num
         data['text'] = text
-        if date is not None:
-            # Time to replace the _ char by a space char
-            data['date'] = string.replace(date, '_', ' ')
+        if self._date is not None:
+            data['date'] = self._date
         res = requests.post(url, data=data)
         #TODO: check on a bien 200
         returns = res.json()
