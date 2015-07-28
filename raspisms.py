@@ -45,7 +45,7 @@ class RaspiSMS(object):
         #TODO: check on a bien 200
         returns = res.json()
         if returns["error"] == 0:
-            # everything ok
+            # everything is ok
             pass
         elif returns["error"] == 1:
             raise RaspiSMSError("Invalid auth (email/password)")
